@@ -1,0 +1,70 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<div class="mb-3">
+						
+									
+  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  						<h1 class="h3 d-inline align-middle">Students Register </h1>
+						<br><br>
+  						<p>Add students to your system to perform better Surveillance  </p>
+					</div>
+					<!-- students_reg -->upload_file
+					<form action="{{url_for('students_reg')}}" method="POST" enctype="multipart/form-data"> 
+						<div class="card ">
+						<div class=" card-body ">
+
+							<div class=" row ">
+								
+								<div class="col-4 ">
+									<label class="form-label" >First Name</label>
+									<input type="text" required name="first_name" class="form-control" placeholder="Enter first name ">
+								</div>
+								<div class="col-4 ">
+									<label class="form-label" >Last Name</label>
+									<input type="text" required name="last_name" class="form-control" placeholder="Enter Last name">
+								</div>
+								<div class="col-4 ">
+									<label class="form-label" >Level</label>
+									<input type="text" required name="level" class="form-control" placeholder=" Enter level of student">
+								</div>
+
+							
+							</div>
+							<br>
+							<div class=" row ">
+								
+								
+								<div class="col-4 ">
+									<label class="form-label" required for="date">Birthday</label>
+									<input type="Date" name="date" class="form-control"  id="date" placeholder="Enter a birthday">
+								</div>
+								<div class="col-4 ">
+									<label class="form-label" for="photo">Photo</label>
+									<i data-feather="camera-off"></i>
+									<input type="file"  name="file" class="form-control" accept="image/png, image/jpeg"  id="photo" value="Upload student's photo">
+									<br>
+								</div>
+								<div class="col-4 ">
+									<label class="form-label" for="photo">Take picture</label>
+									<br>
+									<i data-feather="camera"  class="text-danger "></i>
+									<br>
+								</div>
+							<br>
+							<br> <center><input type="submit" value="Register student"   class="btn btn-primary"></center>
+						</div>
+						</div>
+					</form>
+				
+						
+			</div>
+			</main>
+
+
+{% endblock %}	

@@ -1,0 +1,112 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<div class="mb-3">
+						
+						<a style="position:relative;margin-left:90em;font-size:90;" class=" badge bg-danger text-white ms-4" href="{{ url_for('create_exam') }}">
+      						Schedule an Exam </a>			
+  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  						<h1 class="h3 d-inline align-middle">Search Scheduled Exam </h1>
+						<br><br>
+  						<p>Do your researche according to various parameters </p>
+					</div>
+					<form action="#" method="POST"> 
+						<div class="card ">
+						<div class=" card-body ">
+
+							<div class=" row ">
+								
+								<div class="col-4 ">
+									<input type="text" class="form-control" placeholder="Subject ">
+								</div>
+								<div class="col-4 ">
+									<input type="text" class="form-control" placeholder="Exam-code">
+								</div>
+								<div class="col-4 ">
+									<input type="text" class="form-control" placeholder=" Exam-Classroom">
+								</div>
+
+							
+							</div>
+							<div class=" row ">
+								
+								
+								<div class="col-4 ">
+									<input type="date" class="form-control" placeholder="Exam Date">
+								</div>
+								<div class="col-4 ">
+									<input type="text" class="form-control" placeholder="Status">
+								</div>
+
+								<div class="col-4 ">
+									<input type="text" class="form-control" placeholder="Assignee">
+								</div>
+							</div>
+							<br>
+							<center><input type="submit" value="Search" class="btn btn-primary"></center>
+						</div>
+						</div>
+					</form>
+					<button onClick="imprimer('sectionAimprimer')">Imprimer</button>
+					<a href="#" onClick="imprimer('sectionAimprimer')">Imprimer</a>
+				
+
+					<div class="row" id='sectionAimprimer' >
+								
+						<div class="col-12 col-lg-12 col-xxl-12 d-flex ">
+							<div class="card flex-fill" >
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">Scheduled Exam</h5>
+								</div>
+								<table class="table table-hover my-0">
+									<thead>
+										<tr>
+											<th>Exam-code</th>
+											<th>Exam-classroom</th>
+											<th>Subject</th>
+											<th >Exam Date</th>
+											<th >Start Time</th>
+											<th >Duration</th>
+											<th>Status</th>
+											<th >Assignee</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for exam in exam_list %}
+										<tr>
+											<td>{{ exam.exam_code }}</td>
+											<td >{{ exam.classroom_name }}</td>
+											<td>{{ exam.subject }}</td>
+											<td >{{ exam.date.d }}-{{ exam.date.m }}-{{ exam.date.y }}</td>
+											<td >{{ exam.start_time.h }} : {{ exam.start_time.min }}</td>
+											<td >{{ exam.Duration }}</td>
+											{% if exam.status == "Done" %}
+												<td><span class="badge bg-success">{{ exam.status }}</span></td>
+											{% endif %}
+											{% if exam.status == "Cancelled" %}
+												<td><span class="badge bg-danger">{{ exam.status }}</span></td>
+											{% endif %}
+											{% if exam.status == "To be done" %}
+												<td><span class="badge bg-primary">{{ exam.status }}</span></td>
+											{% endif %}
+											<td >{{ exam.assignee }}</td>
+										</tr>
+									
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+				
+					</div>
+				</div>
+			</main>
+
+
+{% endblock %}	

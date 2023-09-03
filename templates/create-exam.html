@@ -1,0 +1,82 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<div class="mb-3">
+						
+									
+  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  						<h1 class="h3 d-inline align-middle">Schedule Exam </h1>
+						<br><br>
+  						<p>Create exam according to these parameters </p>
+					</div>
+					<form action="{{url_for('create_exam_reg')}}" method="POST"> 
+						<div class="card ">
+						<div class=" card-body ">
+
+							<div class=" row ">
+								
+								<div class="col-4 ">
+									<label class="form-label" >Subject</label>
+									<input type="text" name="subject" class="form-control" placeholder="Subject ">
+								</div>
+								<div class="col-4 ">
+									<label class="form-label" >Exam-code</label>
+									<input type="text" name="exam_code" class="form-control" placeholder="Exam-code">
+								</div>
+								<div class="col-4 ">
+									<label class="form-label" >Classroom</label>
+									<input type="text" name="classroom_name" class="form-control" placeholder=" Exam-Classroom">
+								</div>
+
+							
+							</div>
+							<br>
+							<div class=" row ">
+								
+								
+								<div class="col-4 ">
+									<label class="form-label" for="date">Exam-Date</label>
+									<input type="Date" name="exam_date" class="form-control"  id="date" placeholder="Exam Date">
+								</div>
+								<div class="col-4 ">
+									<label class="form-label" >Start Time</label>
+									<input type="time" name="start_time" class="form-control" placeholder="Start Time">
+								</div>
+
+								<div class="col-4 ">
+									<label class="form-label" >Class Name</label>
+									<input type="text" name="class_name" class="form-control" placeholder="Class Name ">
+								</div>
+							</div>
+							<br>
+							<div class=" row ">
+								
+								<div class="col-4 ">
+									<label class="form-label" >Duration</label>
+									<input type="number" name="duration" maxlength="2" class="form-control" placeholder="Duration ">
+								</div>
+								
+								<div class="col-4 ">
+									<label class="form-label" >Assignee</label>
+									<input type="text" name="assignee" class="form-control" placeholder="Assignee">
+								</div>
+
+							
+							</div>
+							<br>
+							<center><input type="submit" value="Create-exam" class="btn btn-primary"></center>
+						</div>
+						</div>
+					</form>
+				
+						
+			</div>
+			</main>
+
+
+{% endblock %}	
